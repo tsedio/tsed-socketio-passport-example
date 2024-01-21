@@ -25,14 +25,15 @@
 
 ```batch
 # install dependencies
-$  install
+$ yarn install
 
 # serve
-$  start
+$ docker compose up -d mongodb
+$ yarn start
 
 # build for production
-$  build
-$  start:prod
+$ yarn build
+$ yarn start:prod
 ```
 
 ## Docker

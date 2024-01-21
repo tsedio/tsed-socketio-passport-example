@@ -1,6 +1,7 @@
 import "../styles/index.css";
 
 import React from "react";
+import { IoProvider } from "socket.io-react-hook";
 
 import type { PageContext } from "./types";
 import { PageContextProvider } from "./usePageContext";
@@ -8,9 +9,11 @@ import { PageContextProvider } from "./usePageContext";
 export function PageShell({ children, pageContext }: { children: React.ReactNode; pageContext: PageContext }) {
   return (
     <React.StrictMode>
-      <PageContextProvider pageContext={pageContext}>
-        <Content>{children}</Content>
-      </PageContextProvider>
+      <IoProvider>
+        <PageContextProvider pageContext={pageContext}>
+          <Content>{children}</Content>
+        </PageContextProvider>
+      </IoProvider>
     </React.StrictMode>
   );
 }

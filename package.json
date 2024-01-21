@@ -17,7 +17,7 @@
     "prepare": "is-ci || husky install"
   },
   "dependencies": {
-    "@tsed/schema-formio": "^7.57.1",
+    "@tsed/schema-formio": "7.59.0",
     "lerna": "^8.0.2"
   },
   "devDependencies": {

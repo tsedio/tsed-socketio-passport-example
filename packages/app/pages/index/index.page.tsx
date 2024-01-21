@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSocketEvent } from "socket.io-react-hook";
 
 import { AlertError } from "../../components/alert/AlertError.js";
 import { SubmitButton } from "../../components/button/SubmitButton.js";
 import { FormBuilder } from "../../components/form-builder/FormBuilder.js";
 import { FormHeader } from "../../components/header/FormHeader.js";
+import { useUsersSocket } from "../../components/ws/socket.js";
 import { PageContext } from "../../renderer/types";
 
 export interface HomePageProps {
@@ -12,6 +14,16 @@ export interface HomePageProps {
 }
 
 export function Page({ form, errors }: PageContext & HomePageProps) {
+  const { socket, connected, error } = useUsersSocket();
+  const { lastMessage, sendMessage } = useSocketEvent(socket, "whoami");
+  console.log(connected, error, lastMessage, sendMessage);
+
+  useEffect(() => {
+    sendMessage("whoami").then((response) => {
+      console.log("==>response", response);
+    });
+  }, []);
+
   return (
     <div className='flex min-h-full flex-col justify-center px-6 py-12 lg:px-8'>
       <FormHeader>Sign in to your account</FormHeader>
