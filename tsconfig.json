@@ -1,0 +1,25 @@
+{
+  "files": [],
+  "compilerOptions": {
+    "noEmit": true,
+    "module": "commonjs",
+    "target": "esnext",
+    "jsx": "react-jsx",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  },
+  "references": [
+    {
+      "path": "packages/server/tsconfig.json"
+    }
+  ],
+  "include": [],
+  "exclude": [
+    "**/node_modules"
+  ]
+}

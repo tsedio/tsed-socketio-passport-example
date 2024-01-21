@@ -1,0 +1,8 @@
+{
+  "debounce": 1000,
+  "respawn": true,
+  "notify": false,
+  "extensions": {
+    "ts": "@swc-node/register"
+  }
+}

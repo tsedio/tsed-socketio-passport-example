@@ -1,0 +1,475 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormioFormioSchemesController getSchema should return ApiKey Schema with locales dataSources 1`] = `
+{
+  "access": [],
+  "components": [
+    {
+      "description": "Api_key provided by ClubMed API team",
+      "disabled": false,
+      "input": true,
+      "key": "id",
+      "label": "Api Key:",
+      "tableView": true,
+      "type": "textfield",
+      "validate": {
+        "required": true,
+      },
+    },
+    {
+      "disabled": false,
+      "input": true,
+      "key": "contacts",
+      "label": "Contacts:",
+      "multiple": true,
+      "tableView": true,
+      "type": "email",
+      "validate": {
+        "required": true,
+      },
+    },
+    {
+      "description": "Commercial profile ID associated to this ApiKey",
+      "disabled": false,
+      "input": true,
+      "key": "profile",
+      "label": "Profile:",
+      "tableView": true,
+      "type": "textfield",
+      "validate": {
+        "required": false,
+      },
+    },
+    {
+      "data": {
+        "url": "/locales?include_wildcard=true",
+      },
+      "dataSrc": "url",
+      "disabled": false,
+      "idPath": "id",
+      "input": true,
+      "key": "locales",
+      "label": "Locales:",
+      "multiple": true,
+      "selectThreshold": 0.3,
+      "template": "<span class="choices__item-template">{{item.id}}<small>{{item.businessUnit == "*" ? "include all locales" : item.businessUnit}}</small></span>",
+      "type": "select",
+      "validate": {
+        "required": true,
+      },
+      "valueProperty": "id",
+      "widget": "choicesjs",
+    },
+    {
+      "defaultValue": "TBD",
+      "description": "Application code",
+      "disabled": false,
+      "input": true,
+      "key": "application_code",
+      "label": "Application code:",
+      "type": "textfield",
+      "validate": {
+        "required": false,
+      },
+    },
+    {
+      "defaultValue": "TBD",
+      "description": "The channel code used to call CLIC backend",
+      "disabled": false,
+      "input": true,
+      "key": "clic_channel_code",
+      "label": "Clic channel code:",
+      "tableView": true,
+      "type": "textfield",
+      "validate": {
+        "required": false,
+      },
+    },
+    {
+      "defaultValue": "NET",
+      "description": "The channel code applied for a commercial transaction",
+      "disabled": false,
+      "input": true,
+      "key": "channel_code",
+      "label": "Channel code:",
+      "tableView": true,
+      "type": "textfield",
+      "validate": {
+        "required": false,
+      },
+    },
+    {
+      "defaultValue": true,
+      "description": "Is the date offset should be considered for the api_key",
+      "disabled": false,
+      "input": true,
+      "key": "date_offset_enabled",
+      "label": "Enable date offset",
+      "type": "checkbox",
+      "validate": {
+        "required": false,
+      },
+    },
+    {
+      "defaultValue": true,
+      "description": "Is used",
+      "disabled": true,
+      "input": true,
+      "key": "used",
+      "label": "Used",
+      "tableView": true,
+      "type": "checkbox",
+      "validate": {
+        "required": false,
+      },
+    },
+    {
+      "defaultValue": true,
+      "description": "Allow or disallow the access to API for this ApiKey",
+      "disabled": false,
+      "input": true,
+      "key": "enabled",
+      "label": "Enabled",
+      "tableView": true,
+      "type": "checkbox",
+      "validate": {
+        "required": false,
+      },
+    },
+    {
+      "description": "The clubmed agent id",
+      "disabled": false,
+      "input": true,
+      "key": "agent_id",
+      "label": "Agent id",
+      "type": "textfield",
+      "validate": {
+        "required": false,
+      },
+    },
+  ],
+  "display": "form",
+  "machineName": "api-key",
+  "name": "api-key",
+  "permissions": [
+    "clients:oidc",
+    "api_admin",
+  ],
+  "submissionAccess": [],
+  "tags": [],
+  "title": "ApiKey",
+  "type": "form",
+}
+`;
+
+exports[`FormioFormioSchemesController getSchema should return OIDCClient Schema for creation 1`] = `
+{
+  "access": [],
+  "components": [
+    {
+      "disabled": true,
+      "hidden": true,
+      "input": true,
+      "key": "created",
+      "label": "Created:",
+      "type": "textfield",
+      "validate": {
+        "required": false,
+      },
+    },
+    {
+      "disabled": true,
+      "hidden": true,
+      "input": true,
+      "key": "modified",
+      "label": "Modified:",
+      "type": "textfield",
+      "validate": {
+        "required": false,
+      },
+    },
+    {
+      "components": [
+        {
+          "components": [
+            {
+              "disabled": false,
+              "input": true,
+              "key": "client_name",
+              "label": "Client name:",
+              "type": "textfield",
+              "validate": {
+                "required": true,
+              },
+            },
+            {
+              "defaultValue": false,
+              "disabled": false,
+              "input": true,
+              "key": "trusted",
+              "label": "Trusted",
+              "type": "checkbox",
+              "validate": {
+                "required": false,
+              },
+            },
+            {
+              "disabled": false,
+              "input": true,
+              "key": "client_uri",
+              "label": "Client Uri:",
+              "type": "url",
+              "validate": {
+                "required": false,
+              },
+            },
+            {
+              "disabled": false,
+              "input": true,
+              "key": "logo_uri",
+              "label": "Logo uri:",
+              "type": "url",
+              "validate": {
+                "required": false,
+              },
+            },
+            {
+              "defaultValue": "web",
+              "disabled": false,
+              "key": "application_type",
+              "label": "Application type:",
+              "type": "radio",
+              "validate": {
+                "required": true,
+              },
+              "values": [
+                {
+                  "label": "web",
+                  "shortcut": "",
+                  "value": "web",
+                },
+                {
+                  "label": "native",
+                  "shortcut": "",
+                  "value": "native",
+                },
+                {
+                  "label": "service",
+                  "shortcut": "",
+                  "value": "service",
+                },
+              ],
+            },
+            {
+              "disabled": false,
+              "inline": false,
+              "key": "response_types",
+              "label": "Response types:",
+              "type": "selectboxes",
+              "validate": {
+                "required": false,
+              },
+              "values": [
+                {
+                  "label": "code",
+                  "shortcut": "",
+                  "value": "code",
+                },
+                {
+                  "label": "id_token token",
+                  "shortcut": "",
+                  "value": "id_token token",
+                },
+                {
+                  "label": "code id_token token",
+                  "shortcut": "",
+                  "value": "code id_token token",
+                },
+                {
+                  "label": "token",
+                  "shortcut": "",
+                  "value": "token",
+                },
+                {
+                  "label": "none",
+                  "shortcut": "",
+                  "value": "none",
+                },
+              ],
+            },
+            {
+              "disabled": false,
+              "inline": false,
+              "key": "grant_types",
+              "label": "Grant types:",
+              "type": "selectboxes",
+              "validate": {
+                "required": false,
+              },
+              "values": [
+                {
+                  "label": "authorization_code",
+                  "shortcut": "",
+                  "value": "authorization_code",
+                },
+                {
+                  "label": "implicit",
+                  "shortcut": "",
+                  "value": "implicit",
+                },
+                {
+                  "label": "refresh_token",
+                  "shortcut": "",
+                  "value": "refresh_token",
+                },
+                {
+                  "label": "client_credentials",
+                  "shortcut": "",
+                  "value": "client_credentials",
+                },
+              ],
+            },
+            {
+              "defaultValue": "client_secret_basic",
+              "disabled": false,
+              "key": "token_endpoint_auth_method",
+              "label": "Token endpoint authentication method:",
+              "type": "radio",
+              "validate": {
+                "required": false,
+              },
+              "values": [
+                {
+                  "label": "client_secret_post",
+                  "shortcut": "",
+                  "value": "client_secret_post",
+                },
+                {
+                  "label": "client_secret_basic",
+                  "shortcut": "",
+                  "value": "client_secret_basic",
+                },
+                {
+                  "label": "client_secret_jwt",
+                  "shortcut": "",
+                  "value": "client_secret_jwt",
+                },
+                {
+                  "label": "private_key_jwt",
+                  "shortcut": "",
+                  "value": "private_key_jwt",
+                },
+                {
+                  "label": "none",
+                  "shortcut": "",
+                  "value": "none",
+                },
+              ],
+            },
+            {
+              "defaultValue": 3600,
+              "delimiter": false,
+              "disabled": false,
+              "input": true,
+              "inputFormat": "plain",
+              "key": "default_max_age",
+              "label": "Default max age:",
+              "mask": false,
+              "requireDecimal": false,
+              "type": "number",
+              "validate": {
+                "required": false,
+              },
+            },
+          ],
+          "key": "parameters",
+          "label": "Parameters",
+        },
+        {
+          "components": [
+            {
+              "disabled": false,
+              "input": true,
+              "key": "redirect_uris",
+              "label": "Authorized redirect Uris:",
+              "multiple": true,
+              "type": "textfield",
+              "validate": {
+                "required": false,
+              },
+            },
+            {
+              "disabled": false,
+              "input": true,
+              "key": "post_logout_redirect_uris",
+              "label": "Authorized post logout redirect Uris:",
+              "multiple": true,
+              "type": "textfield",
+              "validate": {
+                "required": false,
+              },
+            },
+          ],
+          "key": "redirectUris",
+          "label": "Redirect Uris",
+        },
+        {
+          "components": [
+            {
+              "customConditional": "show = form?.permissions?.includes("api_admin")",
+              "data": {
+                "url": "/oidc/scopes?",
+              },
+              "dataSrc": "url",
+              "disabled": false,
+              "idPath": "name",
+              "input": true,
+              "key": "scopes",
+              "label": "Scopes:",
+              "multiple": true,
+              "selectThreshold": 0.3,
+              "template": "<span>{{ item.name }}</span>",
+              "type": "select",
+              "validate": {
+                "required": false,
+              },
+              "valueProperty": "name",
+              "widget": "choicesjs",
+            },
+          ],
+          "key": "permissions",
+          "label": "Permissions",
+        },
+      ],
+      "input": false,
+      "key": "tabs",
+      "label": "Tabs",
+      "pushed": true,
+      "tableView": false,
+      "type": "tabs",
+    },
+    {
+      "disabled": false,
+      "hidden": true,
+      "input": true,
+      "key": "type",
+      "label": "Type",
+      "type": "textfield",
+      "validate": {
+        "required": false,
+      },
+    },
+  ],
+  "display": "form",
+  "machineName": "oidc-client",
+  "name": "oidc-client",
+  "permissions": [
+    "clients:oidc",
+    "authenticated",
+  ],
+  "submissionAccess": [],
+  "tags": [],
+  "title": "OIDCClient",
+  "type": "form",
+}
+`;

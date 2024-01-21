@@ -1,0 +1,21 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "plugin:jsx-a11y/strict",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["simple-import-sort", "jsx-a11y"],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "error",
+    "import/no-anonymous-default-export": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "jsx-a11y/no-autofocus": 0
+  }
+}
