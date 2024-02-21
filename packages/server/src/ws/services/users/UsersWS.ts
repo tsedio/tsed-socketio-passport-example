@@ -1,4 +1,4 @@
-import {Configuration, Inject} from "@tsed/di";
+import {Constant, Inject} from "@tsed/di";
 import {Unauthorized} from "@tsed/exceptions";
 import {Logger} from "@tsed/logger";
 import {Input, Nsp, Socket, SocketService} from "@tsed/socketio";
@@ -6,7 +6,7 @@ import passport from "passport";
 import {Namespace, Server} from "socket.io";
 
 import {User} from "../../../models/users/User.ts";
-import {wrapMiddleware} from "../utils/wrapMiddleware.ts";
+import {MiddlewareToWrap, wrapMiddleware} from "../utils/wrapMiddleware.ts";
 
 @SocketService("/users")
 export class UsersWS {
@@ -19,16 +19,19 @@ export class UsersWS {
   @Inject()
   protected logger: Logger;
 
-  @Inject()
-  protected config: Configuration;
+  @Constant("session")
+  protected session: MiddlewareToWrap;
+
+  @Constant("passport")
+  protected passportSettings: { userProperty: string; pauseStream: boolean | string };
 
   /**
    * Triggered the namespace is created
    */
   $onNamespaceInit(nsp: Namespace) {
-    nsp.use(wrapMiddleware(this.config.session));
-    nsp.use(wrapMiddleware(passport.initialize({userProperty: this.config.passport.userProperty})));
-    nsp.use(wrapMiddleware(passport.session({pauseStream: !!this.config.passport.pauseStream})));
+    nsp.use(wrapMiddleware(this.session));
+    nsp.use(wrapMiddleware(passport.initialize({userProperty: this.passportSettings.userProperty})));
+    nsp.use(wrapMiddleware(passport.session({pauseStream: !!this.passportSettings.pauseStream})));
     nsp.use((socket, next) => {
       if ("user" in socket.request && socket.request.user) {
         next();
